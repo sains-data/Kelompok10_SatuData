@@ -1,6 +1,6 @@
 # Kelompok-10
 
-# Data Mart - Satuan Pengawas Internal
+# Data Mart - Satu Data
 Tugas Besar Pergudangan Data - Kelompok 10
 
 ## Team Members
