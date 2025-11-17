@@ -1,4 +1,4 @@
-# Kelompok10
+# Kelompok-10
 
 # Data Mart - Satuan Pengawas Internal
 Tugas Besar Pergudangan Data - Kelompok 10
