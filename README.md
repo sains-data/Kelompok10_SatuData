@@ -94,6 +94,6 @@ Data mart ini akan mendukung:
 📑 [Project Presentations](presentations/)
 
 ## Timeline
-- Misi 1: [Tanggal]
-- Misi 2: [Tanggal]
+- Misi 1: 10 november 2025 - 17 november 2025
+- Misi 2: 17 november 2025 - 24 november 2025
 - Misi 3: [Tanggal]
