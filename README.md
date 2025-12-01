@@ -18,7 +18,7 @@ Data mart ini akan mendukung:
 - **Analytics**: Analisis data untuk mendukung riset dan pengambilan keputusan
 - **Open Data**: Akses data publik yang berhubungan dengan institusi
 
-**Sumber Data**: [Satu Data ITERA](https://data.itera.ac.id/)
+**Sumber Data**: [Satu Data ITERA](https://data.itera.ac.id/) (sekarang memakai data dummy)
 
 ## Business Domain
 **Platform Satu Data ITERA** adalah portal data terpadu Institut Teknologi Sumatera yang menyajikan informasi institusi dalam bentuk:
@@ -88,7 +88,7 @@ Data mart ini akan mendukung:
 📋 [Data Dictionary](docs/02-design/data-dictionary.xlsx)
 
 ### SQL Scripts
-💾 [Schema Creation Scripts](sql/schema/)
+💾 [Schema Creation Scripts](sql/)
 
 ### Reports & Presentations
 📑 [Project Presentations](presentations/)
@@ -96,4 +96,4 @@ Data mart ini akan mendukung:
 ## Timeline
 - Misi 1: 10 november 2025 - 17 november 2025
 - Misi 2: 17 november 2025 - 24 november 2025
-- Misi 3: [Tanggal]
+- Misi 3: 25 november 2025 - 1 desember 2025
