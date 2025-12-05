@@ -168,6 +168,7 @@ graph LR
 
 - **Cek Null:** Kolom kunci tidak boleh NULL.
 - **Cek Referensi:** Semua Foreign Key di tabel fakta harus ada di tabel dimensi.
-- **Cek Duplikasi:** Tidak boleh ada duplikasi pada natural key di tabel dimensi (untuk record aktif).
+- **Cek Duplikasi:** Tidak boleh ada duplikasi pada natural key di tabel dimensi.
 
 ---
+
