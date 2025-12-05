@@ -1,1 +1,0 @@
-membuat etl proses
