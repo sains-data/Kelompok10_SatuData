@@ -1,5 +1,4 @@
 # Dokumentasi ETL - Data Warehouse Satu Data ITERA
-
 ---
 
 ## 1. Gambaran Umum ETL
@@ -159,5 +158,6 @@ graph LR
 - **Cek Duplikasi:** Tidak boleh ada duplikasi pada natural key di tabel dimensi.
 
 ---
+
 
 
