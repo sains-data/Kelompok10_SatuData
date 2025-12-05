@@ -3,16 +3,16 @@
 # Data Warehouse - Satu Data ITERA
 Tugas Besar Pergudangan Data - Kelompok 10
 
-## Team Members
+## Anggota Tim
 - 122450096 - Razin Hafid Hamdi (Leader)
 - 123450102 - Daris Samudra (Member)
 - 123450050 - Ahmad Rizky (Member)
 - 120450019 - Kholisaturrohmah (member)
 
-## Project Description
+## Deskripsi Projek
 Proyek ini bertujuan untuk merancang dan mengimplementasikan data warehouse untuk **Platform Satu Data ITERA** - sebuah portal data terpadu yang menyediakan dataset dan insight tentang Institut Teknologi Sumatera. Platform ini memungkinkan pengguna (mahasiswa, dosen, peneliti, dan publik) untuk mencari, mengakses, dan menganalisis berbagai dataset terkait institusi.
 
-Data mart ini akan mendukung:
+Data warehouse ini akan mendukung:
 - **Pencarian Dataset**: Katalog dataset yang terstruktur dan mudah dicari
 - **Visualisasi Data**: Dashboard dan grafik interaktif untuk insight cepat
 - **Analytics**: Analisis data untuk mendukung riset dan pengambilan keputusan
@@ -40,27 +40,27 @@ Data mart ini akan mendukung:
 5. **Dataset Riset**: Publikasi, penelitian, pengabdian masyarakat
 6. **Dataset Kemahasiswaan**: Organisasi, prestasi, kegiatan mahasiswa
 
-## Architecture
-### Approach
+## Arsitektur
+### Pendekatan (Approach)
 - **Data Warehouse Model**: Star Schema
 - **Platform**: SQL Server 2019 (Docker) on Azure VM
 - **ETL Tool**: SSMS
 - **Visualization**: Power BI
 
-### Technology Stack
+### Teknologi yang Digunakan (Technology Stack)
 - Database: SQL Server 2019 (Linux/Docker)
 - ETL: SSMS 
 - BI Tools: Power BI
 - Version Control: Git/GitHub
 
-## Key Features
-### Fact Tables
+## Fitur Kunci (Key Features)
+### Tabel Fakta (Fact Tables)
 - **Fact_Dataset_Access**: Tracking akses dan download dataset
 - **Fact_Dataset_Quality**: Metrik kualitas dataset (completeness, accuracy)
 - **Fact_Institution_Metrics**: KPI dan metrik institusi per periode
 - **Fact_Search_Query**: Pencarian dataset oleh pengguna
 
-### Dimension Tables
+### Tabel Dimensi (Dimension Tables)
 - **Dim_Dataset**: Informasi dataset (nama, kategori, format)
 - **Dim_User**: Pengguna portal (mahasiswa, dosen, publik)
 - **Dim_Category**: Kategori dataset
@@ -77,7 +77,7 @@ Data mart ini akan mendukung:
 - **Performance Metrics**: Query response time, system uptime, data freshness
 
 
-## Documentation
+## Dokumentasi
 ### Business Requirements
 [Business Requirements Analysis](docs/01-requirements/business-requirements.md)
 [Data Sources Documentation](docs/01-requirements/data-sources.md)
