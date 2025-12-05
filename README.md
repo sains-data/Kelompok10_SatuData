@@ -1,16 +1,16 @@
 # Kelompok 10
 
-# Data Mart - Satu Data
+# Data Warehouse - Satu Data ITERA
 Tugas Besar Pergudangan Data - Kelompok 10
 
 ## Team Members
-- 122450096 - Razin Hafid Hamdi(Leader)
+- 122450096 - Razin Hafid Hamdi (Leader)
 - 123450102 - Daris Samudra (Member)
 - 123450050 - Ahmad Rizky (Member)
 - 120450019 - Kholisaturrohmah (member)
 
 ## Project Description
-Proyek ini bertujuan untuk merancang dan mengimplementasikan data mart untuk **Platform Satu Data ITERA** - sebuah portal data terpadu yang menyediakan dataset dan insight tentang Institut Teknologi Sumatera. Platform ini memungkinkan pengguna (mahasiswa, dosen, peneliti, dan publik) untuk mencari, mengakses, dan menganalisis berbagai dataset terkait institusi.
+Proyek ini bertujuan untuk merancang dan mengimplementasikan data warehouse untuk **Platform Satu Data ITERA** - sebuah portal data terpadu yang menyediakan dataset dan insight tentang Institut Teknologi Sumatera. Platform ini memungkinkan pengguna (mahasiswa, dosen, peneliti, dan publik) untuk mencari, mengakses, dan menganalisis berbagai dataset terkait institusi.
 
 Data mart ini akan mendukung:
 - **Pencarian Dataset**: Katalog dataset yang terstruktur dan mudah dicari
@@ -43,13 +43,13 @@ Data mart ini akan mendukung:
 ## Architecture
 ### Approach
 - **Data Warehouse Model**: Star Schema
-- **Platform**: SQL Server on Azure VM / PostgreSQL
-- **ETL Tool**: SSIS / Apache Airflow / Python
-- **Visualization**: Power BI / Tableau
+- **Platform**: SQL Server 2019 (Docker) on Azure VM
+- **ETL Tool**: SSMS
+- **Visualization**: Power BI
 
 ### Technology Stack
-- Database: SQL Server / PostgreSQL
-- ETL: SSIS / Python (Pandas, SQLAlchemy)
+- Database: SQL Server 2019 (Linux/Docker)
+- ETL: SSMS 
 - BI Tools: Power BI
 - Version Control: Git/GitHub
 
@@ -79,19 +79,22 @@ Data mart ini akan mendukung:
 
 ## Documentation
 ### Business Requirements
-📄 [Business Requirements Analysis](docs/01-requirements/business-requirements.md)
-📄 [Data Sources Documentation](docs/01-requirements/data-sources.md)
+[Business Requirements Analysis](docs/01-requirements/business-requirements.md)
+[Data Sources Documentation](docs/01-requirements/data-sources.md)
 
 ### Design Documents
-🎨 [Entity Relationship Diagram (ERD)](docs/02-design/ERD.png)
-📊 [Dimensional Model](docs/02-design/dimensional-model.png)
-📋 [Data Dictionary](docs/02-design/data-dictionary.xlsx)
+[Entity Relationship Diagram (ERD)](docs/02-design/ERD.png)
+[Dimensional Model](docs/02-design/dimensional-model.png)
+[Data Dictionary](docs/02-design/data-dictionary.xlsx)
 
 ### SQL Scripts
-💾 [Schema Creation Scripts](sql/)
+[Schema Creation Scripts](sql/)
+
+### Dashboard
+[Dashboard](dashboard/Misi3_Dashboard_SatuDataITERA)
 
 ### Reports & Presentations
-📑 [Project Presentations](presentations/)
+[Project Presentations](presentations/)
 
 ## Timeline
 - Misi 1: 10 november 2025 - 17 november 2025
