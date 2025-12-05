@@ -1,17 +1,5 @@
 # Dokumentasi ETL - Data Warehouse Satu Data ITERA
 
-## Daftar Isi
-
-1. [Gambaran Umum ETL](#1-gambaran-umum-etl)
-2. [Sumber Data](#2-sumber-data)
-3. [Arsitektur ETL](#3-arsitektur-etl)
-4. [Alur Data](#4-alur-data)
-5. [Aturan Transformasi](#5-aturan-transformasi)
-6. [Prosedur ETL](#6-prosedur-etl)
-7. [Penanganan Error](#7-penanganan-error)
-8. [Kualitas Data](#8-kualitas-data)
-9. [Monitoring dan Pemeliharaan](#9-monitoring-dan-pemeliharaan)
-
 ---
 
 ## 1. Gambaran Umum ETL
@@ -171,4 +159,5 @@ graph LR
 - **Cek Duplikasi:** Tidak boleh ada duplikasi pada natural key di tabel dimensi.
 
 ---
+
 
