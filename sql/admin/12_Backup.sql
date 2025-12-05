@@ -15,7 +15,7 @@ CREATE OR ALTER PROCEDURE dbo.sp_FullBackup_SatuDataITERA
 AS
 BEGIN
     SET NOCOUNT ON;
-    DECLARE @BackupPath NVARCHAR(500) = '/var/opt/mssql/data/'; -- [FIX]: Path Linux
+    DECLARE @BackupPath NVARCHAR(500) = '/var/opt/mssql/data/';
     DECLARE @FileName NVARCHAR(500);
     DECLARE @DatabaseName NVARCHAR(100) = 'DM_SatuDataITERA_DW';
     DECLARE @CurrentDate NVARCHAR(50);
@@ -132,4 +132,5 @@ EXEC sp_attach_schedule @job_name = 'SatuData_Backup_Log_6Hourly', @schedule_nam
 EXEC sp_add_jobserver @job_name = 'SatuData_Backup_Log_6Hourly';
 GO
 
-PRINT 'KONFIGURASI BACKUP LENGKAP BERHASIL DITERAPKAN';
+
+PRINT 'KONFIGURASI BACKUP BERHASIL DITERAPKAN';
