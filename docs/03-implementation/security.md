@@ -109,14 +109,3 @@ Sistem mencatat aktivitas penting untuk keamanan dan pemantauan.
 
 ---
 
-## 6. Daftar Kontak Keamanan
-
-| Peran | Kontak | Email |
-|-------|--------|-------|
-| Database Administrator | Tim DBA | dba@itera.ac.id |
-| Security Officer | Tim Keamanan | security@itera.ac.id |
-| Helpdesk IT | Layanan TIK | helpdesk@itera.ac.id |
-
----
-
-**Akhir Dokumen Keamanan**
