@@ -100,3 +100,4 @@ Data warehouse ini akan mendukung:
 - Misi 1: 10 november 2025 - 17 november 2025
 - Misi 2: 17 november 2025 - 24 november 2025
 - Misi 3: 25 november 2025 - 1 desember 2025
+- Revisi Misi 1 - 3: 2 desember 2025 - 8 desember 2025
