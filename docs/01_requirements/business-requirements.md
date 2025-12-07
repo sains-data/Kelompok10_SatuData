@@ -1,5 +1,5 @@
 # Business Requirements Analysis
-## Data Mart Portal Satu Data ITERA
+## Data Warehouse Portal Satu Data ITERA
 
 ---
 
@@ -31,48 +31,50 @@
 Data Collection → Data Validation → Metadata Creation → Dataset Publication → Update & Maintenance
 ```
 
-**KPIs**:
-- Jumlah dataset baru dipublikasi per bulan
-- Waktu rata-rata dari collection hingga publikasi
-- Persentase dataset dengan metadata lengkap
-- Frekuensi update dataset sesuai schedule
+**KPIs** :
+- Jumlah dataset yang dipublikasi per unit organisasi (`Total_Dataset_Published`)
+- Rata-rata skor kualitas dataset per unit (`Rata_Rata_Skor_Kualitas`)
+- Status kualitas unit: Excellent, Good, Fair, Needs Improvement
+- Ranking unit berdasarkan jumlah unduhan (`Ranking_Download`)
 
 ### Proses Akses dan Download Dataset
 ```
 User Registration → Search/Browse → Dataset Preview → Download/API Access → Usage Tracking
 ```
 
-**KPIs**:
-- Jumlah user aktif per bulan (by type: mahasiswa, dosen, publik)
-- Total akses dan download dataset
-- Conversion rate dari search ke download
-- Response time rata-rata untuk akses dataset
-- Popular datasets (top 10 most accessed)
+**KPIs** :
+- Total user aktif per periode (`Total_User_Aktif`)
+- Total akses: views, downloads, API calls (`Total_Views`, `Total_Downloads`, `Total_API_Calls`)
+- Conversion rate dari view ke download (`Download_Rate_Percent`)
+- Response time rata-rata (`Avg_Response_Time_MS`)
+- Ranking dataset terpopuler per kategori (`Ranking_In_Category`)
+- Total traffic data (`Total_Traffic_MB`)
+- Success rate akses (`Success_Rate_Percent`)
 
 ### Proses Data Quality Management
 ```
 Quality Assessment → Issue Identification → Data Cleaning → Re-validation → Quality Reporting
 ```
 
-**KPIs**:
-- Data completeness score rata-rata per kategori
-- Data accuracy score per dataset
-- Persentase dataset dengan quality score > 90%
-- Jumlah dataset yang perlu improvement
-- Time lag antara data collection dan availability
+**KPIs** :
+- Rata-rata skor kualitas keseluruhan (`Overall_Quality_Score`)
+- Skor completeness, accuracy, timeliness, consistency per dataset
+- Jumlah missing values dan duplicate records
+- Total records per dataset
+- Status kualitas: Excellent/Good/Fair/Needs Improvement
 
 ### Proses Search & Discovery
 ```
 User Query → Search Execution → Results Ranking → Dataset Selection → Feedback Collection
 ```
 
-**KPIs**:
-- Total pencarian per hari/minggu/bulan
-- Search success rate (queries with results)
-- Popular search keywords
-- Average search duration
-- Click-through rate untuk hasil pencarian
-- Zero-result search rate (queries tanpa hasil)
+**KPIs** :
+- Total pencarian per periode (`Total_Pencarian`)
+- Jumlah pencarian nihil/tanpa hasil (`Pencarian_Nihil`)
+- Click-through rate (`Click_Through_Rate_Percent`)
+- Rata-rata waktu respon pencarian (`Avg_Response_Time_MS`)
+- Ranking keyword populer (`Popularity_Rank`)
+- Prioritas content gap: High/Medium/Low (`Content_Gap_Priority`)
 
 ---
 
@@ -84,23 +86,21 @@ User Query → Search Execution → Results Ranking → Dataset Selection → Fe
 1. Berapa jumlah dataset tersedia per kategori?
 2. Dataset mana yang paling sering diakses/didownload?
 3. Bagaimana kualitas dataset yang tersedia (completeness, freshness)?
-4. Kategori dataset apa yang paling banyak dicari?
+4. Keyword apa yang paling sering dicari terkait dataset?
 
 **User Behavior Analytics**:
-5. Siapa pengguna aktif portal (mahasiswa, dosen, publik)?
-6. Apa keyword pencarian yang paling populer?
-7. Kapan waktu peak usage portal?
-8. Dataset apa yang trending dalam periode tertentu?
+5. Apa keyword pencarian yang paling populer?
+6. Bulan/kuartal mana yang memiliki aktivitas portal tertinggi?
+7. Dataset apa yang trending dalam periode tertentu?
 
 **Institution Metrics Analytics**:
-9. Bagaimana tren jumlah mahasiswa, dosen, program studi?
-10. Bagaimana performa institusi dari tahun ke tahun?
-11. Apa insight utama yang dapat diberikan kepada management?
+8. Bagaimana performa institusi dari tahun ke tahun?
+9. Apa insight utama yang dapat diberikan kepada management?
 
 **Data Quality Analytics**:
-12. Berapa persentase dataset yang up-to-date?
-13. Dataset mana yang perlu di-refresh?
-14. Bagaimana coverage metadata untuk setiap dataset?
+10. Berapa persentase dataset yang up-to-date?
+11. Dataset mana yang perlu di-refresh?
+12. Berapa rata-rata skor completeness dataset per kategori?
 
 ### Report Types
 - **Daily**: Monitoring akses dataset, user activity, system performance
@@ -118,37 +118,3 @@ User Query → Search Execution → Results Ranking → Dataset Selection → Fe
 - **Institution Level**: Agregat institusi (total metrics, KPIs)
 
 ---
-
-## 4. Success Metrics
-
-### Portal Performance Metrics
-- **Availability**: > 99.5% uptime
-- **Response Time**: < 2 seconds untuk search queries
-- **Download Speed**: > 5 MB/s untuk dataset downloads
-- **API Performance**: < 500ms untuk API calls
-
-### Data Quality Metrics
-- **Completeness**: > 95% untuk metadata
-- **Accuracy**: > 98% untuk dataset values
-- **Timeliness**: < 24 hours untuk dataset updates
-- **Consistency**: 100% untuk critical fields
-
-### User Engagement Metrics
-- **Active Users**: > 1000 users per month
-- **Download Rate**: > 500 downloads per month
-- **Search Success Rate**: > 85%
-- **User Satisfaction**: > 4.0/5.0
-
-### Dataset Portfolio Metrics
-- **Dataset Coverage**: > 80% unit organisasi memiliki dataset
-- **Update Frequency**: > 90% dataset di-update sesuai schedule
-- **Quality Score**: > 85% dataset dengan quality score > 80%
-- **Access Diversity**: > 70% dataset diakses minimal 1x per bulan
-
----
-
-**Document Information**:
-- **Created**: November 2024
-- **Version**: 1.0
-- **Project**: Data Mart Portal Satu Data ITERA
-- **Course**: Pergudangan Data - Institut Teknologi Sumatera
