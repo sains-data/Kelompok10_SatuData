@@ -4,8 +4,8 @@
 Tugas Besar Pergudangan Data - Kelompok 10
 
 ## Anggota Tim
-- 122450096 - Razin Hafid Hamdi (Leader)
-- 123450102 - Daris Samudra (Member)
+- 123450096 - Razin Hafid Hamdi (Leader)
+- 122450102 - Daris Samudra (Member)
 - 123450050 - Ahmad Rizky (Member)
 - 120450019 - Kholisaturrohmah (member)
 
