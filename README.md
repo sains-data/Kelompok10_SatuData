@@ -1,5 +1,3 @@
-# Kelompok 10
-
 # Data Warehouse - Satu Data ITERA
 Tugas Besar Pergudangan Data - Kelompok 10
 
