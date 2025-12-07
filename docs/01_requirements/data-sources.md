@@ -5,132 +5,98 @@
 
 ## 1. Available Data Sources
 
-**Portal Satu Data ITERA** mengintegrasikan data dari berbagai sistem internal ITERA:
+**Portal Satu Data ITERA** mengintegrasikan data operasional portal untuk analitik:
 
-| Data Source | Type | Volume | Update Frequency | Quality |
+| Data Source | Type | Volume | Update Frequency | Quality | 
 |------------|------|--------|------------------|---------|
-| SIAKAD Database | SQL Server | ~100K rows (mahasiswa) | Real-time | High |
-| Portal Mahasiswa | PostgreSQL | ~50K rows | Real-time | High |
-| HRIS Database | SQL Server | ~1K rows (dosen/staff) | Daily | High |
-| Absensi Excel | CSV/Excel | ~10K rows/month | Daily | Medium |
-| E-Learning Platform | MySQL | ~200K rows (aktivitas) | Real-time | Medium |
-| Library System | PostgreSQL | ~50K rows | Real-time | Medium |
-| Financial System | SQL Server | ~20K rows/year | Daily | High |
-
----
-
-## 2. Data Source Analysis
-
-### Portal Satu Data ITERA (Primary Source)
-
-**Platform Architecture**:
-- **Frontend**: Web portal untuk pencarian dan visualisasi
-- **Backend**: REST API untuk akses programmatic
-- **Data Catalog**: Metadata management untuk semua dataset
-- **Analytics Engine**: Query dan agregasi data
-
-**Dataset Categories Available**:
-- **Akademik**: Data mahasiswa, program studi, perkuliahan
-- **Kepegawaian**: Data dosen, publikasi, penelitian
-- **Infrastruktur**: Fasilitas, ruangan, aset
-- **Keuangan**: Beasiswa, anggaran
-- **Riset**: Penelitian, pengabdian masyarakat
-
-**Data Volume (from Portal)**:
-- Total Records: 23,842 mahasiswa aktif
-- Dosen: 778 records
-- Program Studi: 42 records
-- Fakultas: 3 records
-
-**Data Quality**:
-- **Completeness**: 90% (beberapa dataset memiliki missing values)
-- **Accuracy**: High (data divalidasi oleh unit terkait)
-- **Freshness**: Varies (daily untuk data aktif, monthly untuk historis)
-- **Consistency**: High (enforced by referential integrity)
-
-**Update Frequency**:
-- Real-time untuk statistik institusi
-- Daily batch untuk dataset akademik
-- Monthly untuk dataset riset dan publikasi
-
-### Portal Data ITERA (https://data.itera.ac.id/)
-
-**Available Datasets**:
-- Total Mahasiswa Aktif: 23,842
-- Total Dosen: 778
-- Total Program Studi: 42
-- Total Fakultas: 3
-
-**Access Method**:
-- Web Portal (UI-based browsing)
-- REST API (if available for programmatic access)
-- Data Export (CSV/Excel downloads)
-
-**Dataset Characteristics**:
-- Format: CSV, JSON, Excel, API endpoints
-- Size Range: 100 KB - 50 MB per dataset
-- Metadata: Standardized metadata schema
-- Documentation: Dataset descriptions, field definitions
+| SatuData_API | REST API/JSON | ~1K datasets | Real-time | High |
+| Access_Log | Server Log | ~50K rows/month | Real-time | High |
+| Search_Query_Log | Server Log | ~10K rows/month | Real-time | High |
+| Dataset_Metadata | Database | ~700 datasets | Daily | High |
+| User_Registry | Database | ~5K users | Daily | High |
+| Organization_Master | Master Data | ~50 units | Weekly | High |
+| Quality_Assessment | Periodic Report | ~700 records/month | Monthly | Medium |
 
 ---
 
 ## 3. Data Profiling
 
-### Mahasiswa Data Profile
+### Access_Log Data Profile
 ```
-Dataset Name: Data Mahasiswa Aktif
-Total Records: 23,842
-Attributes: NIM, Nama, Program_Studi, Angkatan, Status, IPK, SKS_Lulus
-Data Types: VARCHAR, INT, DECIMAL
-Null Values: < 2%
+Dataset Name: Log Akses Dataset Portal
+Total Records: ~50,000/month
+Attributes: access_id, dataset_id, user_id, timestamp, access_type, 
+           file_size, response_time_ms, status
+Data Types: INT, BIGINT, DATETIME, VARCHAR
+Null Values: < 1% (user_id nullable untuk anonymous)
 Duplicates: None (enforced by PK)
 Data Format: Consistent
-Primary Key: NIM
-Foreign Keys: Program_Studi (→ Program_Studi)
+Primary Key: access_id
+Foreign Keys: dataset_id (→ Dim_Dataset), user_id (→ Dim_User)
 ```
 
 **Data Quality Assessment**:
-- Completeness: 98%
-- Accuracy: 99% (validated against SIAKAD)
+- Completeness: 99%
+- Accuracy: 100% (system generated)
 - Consistency: 100% (referential integrity enforced)
-- Timeliness: Daily updates
+- Timeliness: Real-time
 
-### Dosen Data Profile
+### Dataset_Metadata Profile
 ```
-Dataset Name: Data Dosen
-Total Records: 778
-Attributes: NIDN, Nama, Fakultas, Program_Studi, Jabatan_Akademik, Pendidikan
-Data Types: VARCHAR, INT
-Null Values: ~5% (pada publikasi)
+Dataset Name: Metadata Dataset Portal
+Total Records: ~700 datasets
+Attributes: dataset_id, nama_dataset, deskripsi, kategori, format,
+           tingkat_akses, tanggal_publikasi, last_update, status
+Data Types: INT, VARCHAR, TEXT, DATE
+Null Values: ~3% (pada field deskripsi)
 Duplicates: None
 Data Format: Consistent
-Primary Key: NIDN
-Foreign Keys: Program_Studi (→ Program_Studi)
+Primary Key: dataset_id
+```
+
+**Data Quality Assessment**:
+- Completeness: 97%
+- Accuracy: 98%
+- Consistency: 100%
+- Timeliness: Daily updates
+
+### User_Registry Profile
+```
+Dataset Name: Data Pengguna Portal
+Total Records: ~5,000 users
+Attributes: user_id, username, email, tipe_user,
+           unit_organisasi, tanggal_registrasi, status
+Data Types: INT, VARCHAR, DATE
+Null Values: ~5% (unit_organisasi nullable untuk publik)
+Duplicates: None
+Data Format: Consistent
+Primary Key: user_id
 ```
 
 **Data Quality Assessment**:
 - Completeness: 95%
 - Accuracy: 98%
 - Consistency: 100%
-- Timeliness: Weekly updates
+- Timeliness: Daily updates
 
-### Program Studi Data Profile
+### Search_Query_Log Profile
 ```
-Dataset Name: Data Program Studi
-Total Records: 42
-Attributes: Kode_Prodi, Nama_Prodi, Fakultas, Jenjang, Akreditasi
-Data Types: VARCHAR
-Null Values: None
+Dataset Name: Log Pencarian Portal
+Total Records: ~10,000/month
+Attributes: search_id, user_id, timestamp, query_text,
+           result_count, clicked_dataset_id, search_time_ms
+Data Types: INT, TEXT, DATETIME
+Null Values: ~10% (user_id nullable untuk anonymous)
 Duplicates: None
-Primary Key: Kode_Prodi
-Foreign Keys: Fakultas (→ Fakultas)
+Data Format: Consistent
+Primary Key: search_id
 ```
 
 **Data Quality Assessment**:
-- Completeness: 100%
-- Accuracy: 100%
+- Completeness: 90%
+- Accuracy: 100% (system generated)
 - Consistency: 100%
-- Timeliness: Annual updates
+- Timeliness: Real-time
 
 ---
 
@@ -138,85 +104,89 @@ Foreign Keys: Fakultas (→ Fakultas)
 
 ```mermaid
 graph LR
-    A[SIAKAD DB] --> E[Staging Area]
-    B[Portal ITERA] --> E
-    C[HRIS DB] --> E
-    D[E-Learning] --> E
+    A[Access_Log] --> E[Staging Area]
+    B[Search_Query_Log] --> E
+    C[Dataset_Metadata] --> E
+    D[User_Registry] --> E
     E --> F[Data Warehouse]
-    F --> G[Data Mart]
+    F --> G[Analytical Views]
 ```
 
 ### ETL Process Flow
 
 **Extract**:
-- SIAKAD DB → Extract mahasiswa, mata kuliah, nilai
-- HRIS DB → Extract dosen, jabatan, publikasi
-- Portal ITERA → Extract dataset metadata, akses log
-- E-Learning → Extract aktivitas pembelajaran
+- Access_Log → Extract akses dataset (view, download, API call)
+- Search_Query_Log → Extract log pencarian user
+- Dataset_Metadata → Extract katalog dan metadata dataset
+- User_Registry → Extract data pengguna portal
 
 **Transform**:
-- Data cleansing (remove duplicates, fix nulls)
+- Data cleansing (handle nulls for anonymous users)
 - Data standardization (format, naming conventions)
-- Data integration (merge from multiple sources)
-- Dimension lookup (map to dimension tables)
-- Measure calculation (aggregations, KPIs)
+- Dimension lookup (map to Dim_Dataset, Dim_User, Dim_Time)
+- Measure calculation (aggregations, quality scores)
+- SCD Type 2 for Dim_Dataset (track metadata changes)
 
 **Load**:
-- Load dimensions (SCD Type 1 & Type 2)
-- Load fact tables (daily batch)
-- Update metadata (catalog, lineage)
-- Refresh indexes and statistics
+- Load dimensions (SCD Type 1 for Dim_User, SCD Type 2 for Dim_Dataset)
+- Load fact tables (Fact_Dataset_Access, Fact_Dataset_Quality, Fact_Search_Query)
+- Aggregate to Fact_Institution_Metrics
+- Refresh analytical views
 
 ---
 
 ## 5. Data Source Technical Details
 
-### SIAKAD Database
+### Access_Log (Server Log)
+- **Type**: Web Server Log
+- **Format**: Structured log / JSON
+- **Location**: Portal Server
+- **Connection**: Log parsing / File import
+- **Volume**: ~50,000 rows/month
+- **Update Pattern**: Real-time (setiap akses dicatat)
+
+### Search_Query_Log (Server Log)
+- **Type**: Application Log
+- **Format**: Structured log / JSON
+- **Location**: Portal Server
+- **Connection**: Log parsing / File import
+- **Volume**: ~10,000 rows/month
+- **Update Pattern**: Real-time (setiap pencarian dicatat)
+
+### Dataset_Metadata (Database)
 - **Database Type**: SQL Server 2019
-- **Location**: On-premise
+- **Location**: Docker Container (Azure VM)
 - **Connection**: JDBC/ODBC
-- **Access**: Read-only via service account
-- **Volume**: ~100K rows (students), ~200K rows (grades)
-- **Update Pattern**: Real-time (transactional)
+- **Access**: Read-only via ETL service account
+- **Volume**: ~700 datasets
+- **Update Pattern**: Daily batch
 
-### HRIS Database
+### User_Registry (Database)
 - **Database Type**: SQL Server 2019
-- **Location**: On-premise
+- **Location**: Docker Container (Azure VM)
 - **Connection**: JDBC/ODBC
-- **Access**: Read-only via service account
-- **Volume**: ~1K rows (employees)
-- **Update Pattern**: Daily batch (8 PM)
+- **Access**: Read-only via ETL service account
+- **Volume**: ~5,000 users
+- **Update Pattern**: Daily batch
 
-### Portal Satu Data ITERA
-- **Platform**: Custom web portal
-- **Backend**: REST API
-- **Data Format**: JSON, CSV
-- **Access**: API key authentication
-- **Volume**: Varies by dataset
-- **Update Pattern**: On-demand via portal UI
-
-### E-Learning Platform
-- **Platform**: Moodle / Custom LMS
-- **Database Type**: MySQL
-- **Connection**: Read replica
-- **Volume**: ~200K rows (activities)
-- **Update Pattern**: Real-time sync
+### Organization_Master (Master Data)
+- **Type**: Reference Data
+- **Format**: Static table / CSV
+- **Volume**: ~50 units
+- **Update Pattern**: Weekly / On-demand
 
 ---
 
 ## 6. Data Governance & Security
 
 ### Data Access Control
-- **Role-based Access**: Admin, Data Steward, Viewer
+- **Role-based Access**: Admin, Analytic, Viewer
 - **Dataset Classification**: Public, Internal, Restricted
 - **User Authentication**: SSO integration
 - **API Security**: API key + rate limiting
 
 ### Data Privacy
-- **PII Protection**: Anonymization for public datasets
 - **Data Masking**: Sensitive fields masked in exports
-- **Consent Management**: User consent for data usage
-- **Compliance**: GDPR-like principles (Indonesia data protection)
 
 ### Data Lineage
 - **Source Tracking**: Origin system for each dataset
@@ -228,7 +198,6 @@ graph LR
 - **Validation Rules**: Schema validation, business rules
 - **Quality Checks**: Automated quality scoring
 - **Issue Tracking**: Quality issue logging and resolution
-- **Data Stewardship**: Assigned owners for each dataset
 
 ---
 
@@ -255,10 +224,3 @@ graph LR
 - Caching: Redis for frequently accessed data
 
 ---
-
-**Document Information**:
-- **Created**: November 2024
-- **Version**: 1.0
-- **Project**: Data Mart Portal Satu Data ITERA
-- **Course**: Pergudangan Data - Institut Teknologi Sumatera
-
