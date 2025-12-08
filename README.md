@@ -5,7 +5,7 @@ Tugas Besar Pergudangan Data - Kelompok 10
 - 123450096 - Razin Hafid Hamdi (Leader)
 - 122450102 - Daris Samudra (Member)
 - 123450050 - Ahmad Rizky (Member)
-- 120450019 - Kholisaturrohmah (member)
+- 120450019 - Kholisaturrohmah (Member)
 
 ## Deskripsi Projek
 Proyek ini bertujuan untuk merancang dan mengimplementasikan data warehouse untuk **Platform Satu Data ITERA** - sebuah portal data terpadu yang menyediakan dataset dan insight tentang Institut Teknologi Sumatera. Platform ini memungkinkan pengguna (mahasiswa, dosen, peneliti, dan publik) untuk mencari, mengakses, dan menganalisis berbagai dataset terkait institusi.
