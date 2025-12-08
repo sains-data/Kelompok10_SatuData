@@ -42,12 +42,12 @@ Data warehouse ini akan mendukung:
 ### Pendekatan (Approach)
 - **Data Warehouse Model**: Star Schema
 - **Platform**: SQL Server 2019 (Docker) on Azure VM
-- **ETL Tool**: SSMS
+- **ETL Tool**: T-SQL Stored Procedures + SQL Server Agent
 - **Visualization**: Power BI
 
 ### Teknologi yang Digunakan (Technology Stack)
 - Database: SQL Server 2019 (Linux/Docker)
-- ETL: SSMS 
+- ETL: T-SQL Stored Procedures + SQL Server Agent 
 - BI Tools: Power BI
 - Version Control: Git/GitHub
 
@@ -92,6 +92,7 @@ Data warehouse ini akan mendukung:
 [Dashboard](dashboard/Misi3_Dashboard_SatuDataITERA)
 
 ### Reports & Presentations
+[Final Report](docs/final_report.pdf)
 [Project Presentations](presentations/)
 
 ## Timeline
